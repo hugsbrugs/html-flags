@@ -17,6 +17,13 @@
 
 <h2>Flag by Flag</h2>
 
+<h3>Usage</h3>
+Insert image tag with desired country code
+<pre>&lt;img src="flags32/fr.png"></pre>
+Displays <img src="flags32/fr.png"><br><br>
+
+All Flags<br><br>
+
 <?php
 
 $flag_folder = __DIR__ . DIRECTORY_SEPARATOR . "flags32";
@@ -56,11 +63,17 @@ function scandir_h($directory, $file_extension = null)
 <h2>All Flags in a sprite</h2>
 
 <h3>Sprite</h3>
+In your HTML code, load library
+<pre>&lt;link href="flags/flags.css" rel="stylesheet"></pre>
+Then use it with desired country code 
+<pre>&lt;div class="flag flag-fr"></div></pre>
+That renders to
+<div class="flag flag-fr"></div>
+
+Here is the sprite used<br>
 <img src="flags/flags.png" alt="country flag sprite"><br><br>
 
-<h3>Usage</h3>
-<pre><div class="flag flag-bo"></div></pre>
-<div class="flag flag-bo"></div>
+
 
 </body>
 </html>
