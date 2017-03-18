@@ -28,35 +28,27 @@ foreach ($flag_list as $key => $flag)
     echo '<img src="flags32/'.$flag.'" alt="'.$flag.'" class="flag-margin">';
 }
 
+/**
+ *
+ */
 function scandir_h($directory, $file_extension = null)
 {
     $scanned_directory = array_diff(scandir($directory), array('..', '.'));
 
     if($file_extension !== null && count($scanned_directory) > 0)
     {
-        $restricted_scan = array();
+        $restricted_scan = [];
         foreach ($scanned_directory as $key => $file)
         {
             // If file extension match
-            if(file_extension($file) === $file_extension)
+            if(pathinfo($file, PATHINFO_EXTENSION) === $file_extension)
             {
-                array_push($restricted_scan, $file);
+                $restricted_scan[] = $file;
             }
         }
         $scanned_directory = $restricted_scan;
     }
     return $scanned_directory;
-}
-
-function file_extension($filename)
-{
-    $file_extension = "";
-    $file_parts = explode(".", $filename);
-    if(count($file_parts) > 0)
-    {
-        $file_extension = $file_parts[count($file_parts)-1];
-    }
-    return $file_extension;
 }
 
 ?>
